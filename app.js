@@ -6,28 +6,32 @@ function studentDetailsObject(fName, lName, rollNo, phoneNo) {
     this.phoneNo = phoneNo;
 }
 app.config(function($stateProvider,$urlRouterProvider){
-    $urlRouterProvider.otherwise('/');
-
     $stateProvider
     .state('home',{
-        url:'/',
-        templateUrl:'index.html'
-    });
-    $stateProvider
+        url:'/home',
+        templateUrl:'index.html',
+        controller: "mainCtrl"
+    })
     .state('insert',{
         url:'/insert',
-        templateUrl:'insert.html'
-    });
-    $stateProvider
+        templateUrl:'insert.html',
+        controller: "mainCtrl"
+    })
     .state('search',{
-        templateUrl:'search.html'
-    });
-
-    $stateProvider
+        url:'/search',
+        templateUrl:'search.html',
+        controller: "mainCtrl"
+    })
     .state('delete',{
         url:'/delete',
-        templateUrl:'delete.html'
+        templateUrl:'delete.html',
+        controller: "mainCtrl"
     });
+
+
+    $urlRouterProvider.otherwise('/home');
+
+    
 
 })
 
@@ -35,16 +39,16 @@ var record = new Array();
 app.controller('mainCtrl', function ($scope) {
     //this.searchRoll = "123,345667774,12322";
     console.log(record);
-    console.log($scope.entry);
+    //console.log($scope.entry);
     $scope.addEntry = function () {
         //record.push($scope.newData);
         var obj = new studentDetailsObject($scope.fName, $scope.lName, $scope.rollNo, $scope.phoneNo);
         record.push(obj);
         console.log(record);
     }
-    console.log(this.searchRoll.split(","));
+   // console.log(this.searchRoll.split(","));
     // console.log()
-    app.filter('search', function () {
+   /* app.filter('search', function () {
         return function (input) {
             for (let i = 0; i < RollNo.length; i++) {
                 for (let j = 0; j < record.length; j++) {
@@ -56,7 +60,7 @@ app.controller('mainCtrl', function ($scope) {
         }
     })
 
-    $scope.delete = function () {
+  /*  $scope.delete = function () {
         if (record.length == $scope.deleteRoll.split(",").length) {
             alert("do you want to delete the whole dataBase")
         }
@@ -69,6 +73,6 @@ app.controller('mainCtrl', function ($scope) {
             }
     }*/
         //   console.log(record);
-    }
+ //   }
     $scope.record = record;
 })
