@@ -9,7 +9,7 @@ app.config(function($stateProvider,$urlRouterProvider){
     $stateProvider
     .state('home',{
         url:'/home',
-        templateUrl:'index.html',
+        templateUrl:'app.html',
         controller: "mainCtrl"
     })
     .state('insert',{
@@ -29,7 +29,7 @@ app.config(function($stateProvider,$urlRouterProvider){
     });
 
 
-    $urlRouterProvider.otherwise('/home');
+    $urlRouterProvider.otherwise('/');
 
     
 
@@ -37,7 +37,7 @@ app.config(function($stateProvider,$urlRouterProvider){
 
 var record = new Array();
 app.controller('mainCtrl', function ($scope) {
-    //this.searchRoll = "123,345667774,12322";
+ //   var searchvar=this.searchRoll = "123,345667774,12322";
     console.log(record);
     //console.log($scope.entry);
     $scope.addEntry = function () {
@@ -46,9 +46,11 @@ app.controller('mainCtrl', function ($scope) {
         record.push(obj);
         console.log(record);
     }
-   // console.log(this.searchRoll.split(","));
+     
     // console.log()
-   /* app.filter('search', function () {
+   app.filter('search', function () {
+        var RollNo=searchvar.split(",");
+        console.log(RollNo);
         return function (input) {
             for (let i = 0; i < RollNo.length; i++) {
                 for (let j = 0; j < record.length; j++) {
@@ -59,7 +61,7 @@ app.controller('mainCtrl', function ($scope) {
             }
         }
     })
-
+/*
   /*  $scope.delete = function () {
         if (record.length == $scope.deleteRoll.split(",").length) {
             alert("do you want to delete the whole dataBase")
