@@ -14,17 +14,17 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         })
         .state('insert', {
             url: '/insert',
-            templateUrl: 'insert.html',
+            templateUrl: '../insert/insert.html',
             controller: "mainCtrl"
         })
         .state('search', {
             url: '/search',
-            templateUrl: 'search.html',
+            templateUrl: '../search/search.html',
             controller: "mainCtrl"
         })
         .state('delete', {
             url: '/delete',
-            templateUrl: 'delete.html',
+            templateUrl: '../delete/delete.html',
             controller: "mainCtrl"
         });
 
