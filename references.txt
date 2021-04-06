@@ -2,3 +2,5 @@
 http://websystique.com/angularjs/angularjs-routing-tutorial-using-ui-router/#:~:text=The%20ui%2Dview%20directive%20tells,its%20parent%20template%20is%20index.
 https://www.javatpoint.com/how-an-angular-app-get-loaded-and-started#:~:text=Angular%20is%20a%20framework%20which,Index.
 https://www.w3schools.com/angular/ng_filter_filter.asp
+https://www.w3schools.com/angular/angular_filters.asp
+https://medium.com/@sachilaranawaka/angularjs-1-x-understanding-filters-b4a92873a54d
