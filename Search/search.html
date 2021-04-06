@@ -14,7 +14,7 @@
                     <th>RollNo</th>
                     <th>Number</th>
                 </tr>
-                <tr ng-repeat="entry in record | filter: searchRoll">
+                <tr ng-repeat="entry in record | filter: {rollNo:searchRoll}">
                     <td>{{$index+1}}</td>
                     <td>{{entry.fName}}</td>
                     <td>{{entry.lName}}</td>
