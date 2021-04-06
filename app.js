@@ -73,9 +73,12 @@ app.controller('mainCtrl', function ($scope) {
         }
         //if yes ==if the user presses yes in dialogue box
         for (let i = 0; i < $scope.deleteRoll.length; i++) {
-            var index = record.map(e => e.rollNo).indexOf($scope.deleteRoll[i]);
-            record.splice(index, 1);
-        }
+            var arr=record.map(e => e.rollNo);
+            var index = arr.indexOf(parseInt($scope.deleteRoll[i]));
+            if(index>-1){
+                record.splice(index, 1);    
+            }
+                    }
     }
         $scope.record = record;
 
