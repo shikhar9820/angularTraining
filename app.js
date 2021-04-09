@@ -5,11 +5,36 @@ function studentDetailsObject(fName, lName, rollNo, phoneNo) {
     this.rollNo = rollNo;
     this.phoneNo = phoneNo;
 }
+
+var record = new Array();
+//Routes in case of refactored code
+/*app.config(function ($stateProvider, $urlRouterProvider) {
+    $stateProvider
+        .state('home', {
+            url: '/home',
+            templateUrl: 'home.html', 
+            controller: "mainCtrl"
+        })
+        .state('insert', {
+            url: '/insert',
+            templateUrl: '<insert></insert>' 
+        })
+        .state('search', {
+            url: '/search',
+            templateUrl:'<search></search>'
+        })
+        .state('delete', {
+            url: '/delete',
+            templateUrl:'<delete></delete>'
+        });
+    $urlRouterProvider.otherwise('/');
+})*/
+
 app.config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
         .state('home', {
             url: '/home',
-            templateUrl: 'app.html',
+            templateUrl: 'home.html',
             controller: "mainCtrl"
         })
         .state('insert', {
@@ -35,27 +60,34 @@ app.config(function ($stateProvider, $urlRouterProvider) {
 
 })
 
-var record = new Array();
 app.controller('mainCtrl', function ($scope) {
-    //var searchvar=this.searchRoll = "123,345667774,12322";
     var vm = this;
     $scope.searchRoll = "Enter The Value";
-    $scope.deleteRoll = "Enter the Values"
+    $scope.deleteRoll = "Enter the Value"
     console.log(record);
     
+    
+     $scope.validation= function(){
+          var arr=record.map(e => e.rollNo);
+            var index = arr.indexOf(parseInt($scope.rollNo));
+            return index;
+     }
+    
     $scope.addEntry = function () {
+        if($scope.validation()!=-1){
+                alert("enter unique value");    
+        }
+        else{
         var obj = new studentDetailsObject($scope.fName, $scope.lName, $scope.rollNo, $scope.phoneNo);
         record.push(obj);
-        console.log(record);
+      }
     }
 
     $scope.search = function () {
         $scope.searchRoll = $scope.searchRoll.split(",");
         return function (entry) {
             for (let i = 0; i < $scope.searchRoll.length; i++) {
-
                 if (entry.rollNo == $scope.searchRoll[i]) {
-                    console.log(entry);
                     return entry;
 
                 }
@@ -65,25 +97,65 @@ app.controller('mainCtrl', function ($scope) {
 
     $scope.delete = function () {
         $scope.deleteRoll = $scope.deleteRoll.split(",");
-        if (record.length == $scope.deleteRoll.length) {
+        if(record.length < $scope.deleteRoll.length){
+            alert("Renter the value");
+        }
+        else if (record.length == $scope.deleteRoll.length) {
             var result = confirm("Are you sure?");
             if (!result) {
                 return;
             }
         }
         //if yes ==if the user presses yes in dialogue box
-        for (let i = 0; i < $scope.deleteRoll.length; i++) {
+         for (let i = 0; i < $scope.deleteRoll.length; i++) {
             var arr=record.map(e => e.rollNo);
             var index = arr.indexOf(parseInt($scope.deleteRoll[i]));
             if(index>-1){
                 record.splice(index, 1);    
             }
                     }
-    }
+    
+}
         $scope.record = record;
 
    
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
  /*app.filter('search', function () {

@@ -1,12 +1,20 @@
-app.controller('searchCtrl', function ($scope) {
-    //this.searchRoll = "123,345667774,12322";
-    console.log(record);
-    //console.log($scope.entry);
-    $scope.addEntry = function () {
-        //record.push($scope.newData);
-        var obj = new studentDetailsObject($scope.fName, $scope.lName, $scope.rollNo, $scope.phoneNo);
-        record.push(obj);
-        console.log(record);
+function searchController($scope){
+    var vm=this;
+    $scope.searchRoll = "Enter The Value";
+    $scope.search = function () {
+        $scope.searchRoll = $scope.searchRoll.split(",");
+        return function (entry) {
+            for (let i = 0; i < $scope.searchRoll.length; i++) {
+                    if (entry.rollNo == $scope.searchRoll[i]) {
+                    return entry;
+
+                }
+            }
+        }
     }
-    $scope.record = record;
+    $scope.record=record;
+}
+app.component('search', {
+    templateUrl : 'search/search.html',
+    controller : searchController
 })

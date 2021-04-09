@@ -1,19 +1,20 @@
 <div class="container">
+
     <div class="row">
         <div style="width: 30%; margin: 50px auto;">
-
+            <h3 class="card-subhead">Fill The Form</h3><br>
             <form ng-submit="addEntry()">
                 <div class="form-group">
-                    <input class="form-control" type="text" ng-model="fName" required>
+                    <input class="form-control" placeholder="FirstName" type="text" ng-model="fName" required>
                 </div>
                 <div class="form-group">
-                    <input class="form-control" type="text" ng-model="lName" required>
+                    <input class="form-control" placeholder="Lastname"  type="text" ng-model="lName" required>
                 </div>
                 <div class="form-group">
-                    <input class="form-control" type="number" ng-model="rollNo" required>
+                    <input class="form-control" placeholder="RollNo"    type="number" ng-model="rollNo" required>
                 </div>
                 <div class="form-group">
-                    <input class="form-control" type="number" ng-model="phoneNo" required>
+                    <input class="form-control" placeholder="PhoneNo"   type="number" ng-model="phoneNo" required>
                 </div>
                 <div class="form-group">
                     <input class="btn btn-lg btn-primary btn-block" type="submit"></input>
@@ -27,7 +28,7 @@
                     <th>RollNo</th>
                     <th>Number</th>
                 </tr>
-                <tr ng-repeat="entry in record" >
+                <tr ng-repeat="entry in record">
                     <td>{{$index+1}}</td>
                     <td>{{entry.fName}}</td>
                     <td>{{entry.lName}}</td>
