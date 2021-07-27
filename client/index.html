@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="StudentRecord">
+
+<head>
+    <div>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Angular Data Binding</title>
+
+        <link rel="stylesheet2" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
+        <script src="app.js"></script>
+        <script src="services/services.js"></script>
+        <script src="controller/insert.js"></script>
+        <script src="controller/search.js"></script>
+        <script src="controller/show.js"></script>
+        <script src="controller/delete.js"></script>
+        <script src="controller/analytics.js"></script>
+
+        </body>
+    </div>
+
+
+
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" ui-sref="home">POSist</a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a class="nav-text" ui-sref="insert">insert</a></li>
+                    <li><a class="nav-text" ui-sref="search">search</a></li>
+                    <li><a class="nav-text" ui-sref="delete">delete</a></li>
+                    <li><a class="nav-text" ui-sref="student">studentDetail</a></li>
+                    <li><a class="nav-text" ui-sref="analytics">analytics</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</head>
+<body>
+    <div ng-controller='mainCtrl as vm' ng-init="getData()"></div>
+    <ui-view></ui-view>
+</body>
+</html>

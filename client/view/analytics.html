@@ -1,0 +1,56 @@
+
+ <div ng-controller="analyticsController as vm" class="container">
+    <div class="row">
+        <div style="width: 50%; margin: 50px auto;">
+            <h3 class="card-subhead">Analytics</h3><br>
+            <form>
+                <div class="form-group">
+                    <table class="table table-striped">
+                      <tr>
+                        <td>
+                           <select class="form-control" placeholder="choose the parameter" ng-model="selectedParam1" required>
+                            <option hidden value="" disabled selected>Select filter</option>
+                            <option value="area" selected >Area</option>
+                            <option value="school">School</option>
+                            <option value="class">class</option>
+                           </select>
+                        </td>
+                        <td>
+                            <select class="form-control" placeholder="choose the parameter" ng-model="selectedParam2" required>
+                                <option hidden value="" disabled selected>Select one category </option>
+                                <option value="TopSchool" selected >Top School</option>
+                                <option value="TopSubject">         Top Subject</option>
+                                <option value="TopStudent">         Top Student</option>
+                            </select>                        
+                        </td>
+                        <td>          
+                            <select class="form-control" placeholder="choose the parameter" ng-model="selectedParam3" required>
+                                <optgroup label="Area">   
+                                <option ng-repeat="x in areaArr" value="{{x}}">{{x}}</option>
+                                </optgroup>
+                                <optgroup label="School">
+                                    <option ng-repeat="y in schoolArr" value="{{y}}">{{y}}</option>  
+                                </optgroup> 
+                                <optgroup label ="Class">
+                                    <option ng-repeat="z in classArr" value="{{z}}">{{z}}</option>   
+                                </optgroup>
+                            </select>
+                        </td>
+                        <td>
+                            <button ng-click=" analytics(selectedParam1,selectedParam2,selectedParam3)">Get Details</button>
+                        </td>
+                       </tr>
+                    </table>
+                </div>
+            </form><br>
+            <h3 class="card-subhead">Result</h3><br>
+            <table class="table table-striped">
+                <tr ng-repeat="entry in searchedAnalytics ">
+                    <td>{{$index+1}}</td>
+                    <td>{{entry._id}}</td>
+  
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

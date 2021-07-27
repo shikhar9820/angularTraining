@@ -1,0 +1,72 @@
+ <div ng-controller="insertController as vm" class="container">
+    <div class="row">
+        <div style="width: 50%; margin: 50px auto;">
+            <h3 class="card-subhead">Fill The Form</h3><br>
+            <form ng-submit="addEntry()">
+                <div class="form-group">
+                    <input class="form-control" placeholder="FirstName" type="text" ng-model="fName" required>
+                </div>
+                <div class="form-group">
+                    <input class="form-control" placeholder="Lastname"  type="text" ng-model="lName" required>
+                </div>
+                <div class="form-group">
+                    <input class="form-control" placeholder="RollNo"    type="text" ng-model="rollNo" required>
+                </div>
+                <div class="form-group">
+                    <select class="form-control" placeholder="Class" ng-model="class" ng-options="itr for itr in classArr" required> 
+                    </select>
+                <div class="form-group">
+                    <select class="form-control" placeholder="school"ng-model="school" ng-options="itr for itr in schoolArr" required> 
+                </select>
+                </div>
+                <div>
+                    <select class="form-control" default="area"ng-model="area" ng-options="itr for itr in areaArr" required> 
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <table class="table table-striped">
+                      <tr>
+                        <td>
+                           <select class="form-control" placeholder="subject" ng-model="selectedName" ng-options="itr for itr in subject"></select>
+                        </td>
+                        <td>
+                           <input class="form-control" placeholder="marks"   type="number" min ="0" max="100" ng-model="marks" required>
+                        </td>
+                        <td>
+                           <button ng-click="subjectDetails.push({name:selectedName,marks:marks})">Add</button>
+                        </td>
+                       </tr>
+                       <tr ng-repeat="subject in subjectDetails">
+                         <td>{{subject.name}}</td>
+                         <td>{{subject.marks}}</td>
+                         <td><button ng-click="subjectDetails.splice($index, 1)" aria-label="Remove">X</button></td>
+                       </tr>
+                    </table>
+                </div>
+                <div class="form-group">
+                    <input class="form-control" placeholder="PhoneNo"   type="number" min ="0" ng-model="phoneNo" required>
+                </div>
+                <div class="form-group">
+                    <input class="btn btn-lg btn-primary btn-block" type="submit"></input>
+                </div>
+            </form>
+            <table class="table table-striped">
+                <tr>
+                    <th>No</th>
+                    <th>Fname</th>
+                    <th>lname</th>
+                    <th>RollNo</th>
+                    <th>Number</th>
+                </tr>
+                <tr ng-repeat="entry in stdet ">
+                    <td>{{$index+1}}</td>
+                    <td>{{entry.fName}}</td>
+                    <td>{{entry.lName}}</td>
+                    <td>{{entry.rollNo}}</td>
+                    <td>{{entry.phoneNo}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+ </div>

@@ -4,3 +4,5 @@ https://www.javatpoint.com/how-an-angular-app-get-loaded-and-started#:~:text=Ang
 https://www.w3schools.com/angular/ng_filter_filter.asp
 https://www.w3schools.com/angular/angular_filters.asp
 https://medium.com/@sachilaranawaka/angularjs-1-x-understanding-filters-b4a92873a54d
+https://docs.mongodb.com/drivers/node/fundamentals/crud/write-operations/embedded-arrays/#:~:text=To%20perform%20the%20update%20on,array%20nested%20within%20that%20array.
+https://www.codegrepper.com/code-examples/javascript/javascript+remove+space+from+two+side+of+string
